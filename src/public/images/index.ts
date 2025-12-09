@@ -1,4 +1,3 @@
-import logo from ".//logo.png";
 import aboutSpotify from "./about-spotify.jpg";
 import ceoImage from "./ceo-image.jpg";
 import headerLogo from "./header-logo.png";
@@ -24,6 +23,6 @@ import instagram from "./instagram.svg";
 import X from "./X.svg";
 import facebook from "./facebook.svg";
 
-export { logo, aboutSpotify, ceoImage, headerLogo, lifeAtSpotify, spotifyLoudClear, sustainabilityReport, timeToPlayFair,
+export { aboutSpotify, ceoImage, headerLogo, lifeAtSpotify, spotifyLoudClear, sustainabilityReport, timeToPlayFair,
             artists, creators, advertisers, lifeAt, design, engineering, vendors, songwriters, inventors, help, spotify,
             instagram, X, facebook };
