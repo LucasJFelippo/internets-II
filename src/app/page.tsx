@@ -11,7 +11,7 @@ import { headerLogo, aboutSpotify, ceoImage, lifeAtSpotify, sustainabilityReport
 export default function Home() {
   return (
     <main className="bg-white h-full w-full">
-      <header className="bg-black h-20 flex justify-between px-12 items-center">    
+      <header className="w-full bg-black h-20 flex justify-between px-12 items-center fixed z-99">    
         <div className="flex gap-20">
           <div className="flex gap-4 items-center">
             <Image
@@ -40,7 +40,7 @@ export default function Home() {
 
         {/* <button id="theme-toggle" className="theme-toggle-button">Mudar Tema</button>     */}
       </header>
-      <section className="flex border-b-2 border-solid border-black">
+      <section className="flex border-b-2 border-solid border-black pt-20">
         <div className="w-[66.67%] border-r-2 border-solid border-black px-20 py-10">
           <Image src={aboutSpotify} alt="About Spotify" className="w-full object-cover"/>
           <h1 className="text-black capitalize font-bold text-9xl my-6">about spotify</h1>
