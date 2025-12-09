@@ -1,4 +1,4 @@
-import { headerLogo, aboutSpotify, ceoImage, lifeAtSpotify, sustainabilityReport, timeToPlayFair, spotifyLoudClear } from "@/public/imagens";
+import { headerLogo, aboutSpotify, ceoImage, lifeAtSpotify, sustainabilityReport, timeToPlayFair, spotifyLoudClear } from "@/public/images";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
@@ -78,20 +78,20 @@ export default function Home() {
         </div>
       </section>
       <section className="flex">
-        <div className="w-[34%] p-14">
+        <div className="group w-[34%] p-14 hover:bg-[#2D46B9]">
           <Image src={sustainabilityReport} alt="Sustainability Report" className="w-full object-cover"/>
-          <h4 className="text-black text-3xl font-bold my-6">Sustainability Report</h4>
-          <p className="text-black">Lowering emissions isn’t something we do on the side. It’s an integrated part of everyday business. Learn how we’re taking action.</p>
+          <h4 className="text-black text-3xl font-bold my-6 cursor-pointer group-hover:text-white">Sustainability Report</h4>
+          <p className="text-black group-hover:text-white">Lowering emissions isn’t something we do on the side. It’s an integrated part of everyday business. Learn how we’re taking action.</p>
         </div>
-        <div className="w-[34%] p-14 border-x-2 border-solid border-black">
+        <div className="group w-[34%] p-14 border-x-2 border-solid border-black hover:bg-[#2D46B9]">
           <Image src={timeToPlayFair} alt="Time to Play Fair" className="w-full object-cover"/>
-          <h4 className="text-black text-3xl font-bold my-6">Time to Play Fair</h4>
-          <p className="text-black">When competition is fair, both consumers and companies win. Learn about our efforts to even the playing field for all developers.</p>
+          <h4 className="text-black text-3xl font-bold my-6 cursor-pointer group-hover:text-white">Time to Play Fair</h4>
+          <p className="text-black group-hover:text-white">When competition is fair, both consumers and companies win. Learn about our efforts to even the playing field for all developers.</p>
         </div>
-        <div className="w-[34%] p-14">
+        <div className="group w-[34%] p-14 hover:bg-[#2D46B9]">
           <Image src={spotifyLoudClear} alt="Spotify Loud & Clear" className="w-full object-cover"/>
-          <h4 className="text-black text-3xl font-bold my-6">Spotify Loud & Clear</h4>
-          <p className="text-black">Artists deserve clarity about the economics of music streaming. This site sheds light on the global streaming economy and royalty system.</p>
+          <h4 className="text-black text-3xl font-bold my-6 cursor-pointer group-hover:text-white">Spotify Loud & Clear</h4>
+          <p className="text-black group-hover:text-white">Artists deserve clarity about the economics of music streaming. This site sheds light on the global streaming economy and royalty system.</p>
         </div>
       </section>
     </main>
