@@ -5,6 +5,7 @@ import lifeAtSpotify from "./life-at-spotify.svg";
 import spotifyLoudClear from "./spotify-loud-clear.jpg";
 import sustainabilityReport from "./sustainability-report.jpg";
 import timeToPlayFair from "./time-to-play-fair.png";
+import edSheeran from "./edSheeran.png";
 
 // icons
 import artists from "./artists.svg";
@@ -18,11 +19,14 @@ import songwriters from "./songwriters.svg";
 import inventors from "./inventors.svg";
 import help from "./help.svg";
 import spotify from "./Spotify.svg";
+import spotlight from "./spotlight.svg";
 
 import instagram from "./instagram.svg";
 import X from "./X.svg";
 import facebook from "./facebook.svg";
 
-export { aboutSpotify, ceoImage, headerLogo, lifeAtSpotify, spotifyLoudClear, sustainabilityReport, timeToPlayFair,
-            artists, creators, advertisers, lifeAt, design, engineering, vendors, songwriters, inventors, help, spotify,
-            instagram, X, facebook };
+export {
+    aboutSpotify, ceoImage, headerLogo, lifeAtSpotify, spotifyLoudClear, sustainabilityReport, timeToPlayFair,
+    artists, creators, advertisers, lifeAt, design, engineering, vendors, songwriters, inventors, help, spotify,
+    instagram, X, facebook, edSheeran, spotlight
+};
