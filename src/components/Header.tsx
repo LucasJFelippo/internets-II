@@ -1,13 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
 import { headerLogo } from "@/public/images";
-import { ControlType } from "@/types/global";
+import { useGlobal } from "@/context/GlobalContext";
 
-const Header = ({ control }: ControlType) => {
+const Header = () => {
 
-    const { setActiveSection } = control;
+     const { setActiveSection } = useGlobal();
 
     return (
         <header className="w-full bg-black h-20 flex justify-between px-12 items-center fixed z-99">
@@ -25,9 +27,7 @@ const Header = ({ control }: ControlType) => {
                 </div>
                 <ul className="flex items-center gap-8">
                     <li className="flex gap-1 cursor-pointer" onClick={() => setActiveSection("news")}>
-                        {/* <Link href="/news" className="font-bold hover:text-[#1ED760] transition-colors"> */}
                         <span>News</span>
-                        {/* </Link> */}
                         <ChevronDown />
                     </li>
                     <li className="flex gap-1 cursor-pointer" onClick={() => setActiveSection("company")}>
