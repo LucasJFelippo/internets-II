@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { X } from "lucide-react";
 import { spotifyLoudClear, streamOn, timeToPlayFair } from "@/public/images";
-import { ControlType } from "@/types/global";
+import { useGlobal } from "@/context/GlobalContext";
 
-const Company = ({ control }: ControlType) => {
+const Company = () => {
 
-    const { setActiveSection } = control;
+     const { setActiveSection } = useGlobal();
 
     return (
         <div className="w-full h-max flex justify-between bg-black border-t-2 border-white relative py-18 px-24">
