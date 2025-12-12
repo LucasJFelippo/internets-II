@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -10,9 +11,12 @@ import {
     lifeAtSpotify
 } from "@/public/images";
 import Image from "next/image";
+import Company from "@/components/Company";
+import News from "@/components/News";
+import { useGlobal } from "@/context/GlobalContext";
 
 // --- CONFIGURAÇÃO ISR ---
-export const revalidate = 60;
+// export const revalidate = 60;
 
 // --- DADOS MOCKADOS ---
 async function getNewsData() {
@@ -85,8 +89,10 @@ async function getNewsData() {
     ];
 }
 
-export default async function NewsPage() {
-    const news = await getNewsData();
+export default function NewsPage() {
+    // const news = await getNewsData();
+
+    const { activeSection } = useGlobal();
 
     return (
         <main className="bg-white min-h-screen w-full font-sans">
@@ -96,20 +102,20 @@ export default async function NewsPage() {
             <div className="h-20"></div>
 
             {/* BARRA DE TÍTULO E FILTROS */}
-            <section className="w-full h-[133px] flex flex-row items-start px-[40px] pt-[24px] pb-[10px] bg-white border-b-2 border-black text-black">
+            <section className="w-full h-[133px] flex flex-row items-start px-10 pt-6 pb-2.5 bg-white border-b-2 border-black text-black">
                 <div className="flex flex-col items-start w-[174px] h-[98px] flex-none order-0">
                     <h1 className="uppercase font-extrabold text-[56.5px] leading-[98px] flex items-center">
                         NEWS
                     </h1>
                 </div>
                 <div className="flex flex-col justify-end items-start pl-[34px] h-[98px] flex-none order-1">
-                    <div className="h-[22px] w-[897px] flex items-center mb-[4px]">
+                    <div className="h-[22px] w-[897px] flex items-center mb-1">
                         <span className="font-black text-[16px] leading-[22px]">
                             Featured Filters:
                         </span>
                     </div>
                     <div className="flex flex-row items-start w-[897px] h-[50px]">
-                        <div className="flex flex-col justify-center h-[50px] pb-[4px] pr-[15px]">
+                        <div className="flex flex-col justify-center h-[50px] pb-1 pr-[15px]">
                             <div className="flex items-center h-[46px]">
                                 <span className="font-extrabold text-[16.5px] leading-[46px] text-[#3624E9] underline cursor-pointer">
                                     AllStories
@@ -117,7 +123,7 @@ export default async function NewsPage() {
                             </div>
                         </div>
                         {["News&Announcements", "Culture&Trends", "MusArtists&Creatorsic", "BehindTheBusiness"].map((filter) => (
-                            <div key={filter} className="flex flex-col justify-center h-[50px] pb-[4px] px-[20px]">
+                            <div key={filter} className="flex flex-col justify-center h-[50px] pb-1 px-5">
                                 <div className="flex items-center h-[46px]">
                                     <span className="font-extrabold text-[16.8px] leading-[46px] hover:text-[#3624E9] cursor-pointer transition-colors">
                                         {filter}
@@ -164,7 +170,7 @@ export default async function NewsPage() {
             {/* GRID DE NOTÍCIAS */}
             <section className="w-full px-[40px] py-16 flex justify-center text-black">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[34px] gap-y-[64px] max-w-[1350px]">
-                    {news.map((item) => (
+                    {/* {news.map((item) => (
                         <article
                             key={item.id}
                             className="group flex flex-col w-full max-w-[427px] cursor-pointer"
@@ -186,13 +192,23 @@ export default async function NewsPage() {
                                 </h3>
                             </div>
                         </article>
-                    ))}
+                    ))} */}
                 </div>
             </section>
 
-            <div className="text-white">
-                <Footer />
+        {activeSection === "news" && (
+            <div id="modal" className="absolute top-20 left-0 w-full h-[calc(100vh-5rem)] overflow-y-auto bg-white z-50">
+                <News />
             </div>
+        )}
+        {activeSection === "company" && (
+            <div id="modal" className="absolute top-20 left-0 w-full h-[calc(100vh-5rem)] overflow-y-auto bg-white z-50">
+                <Company />
+            </div>
+        )}
+
+        {!activeSection && (<Footer />)}
+
         </main>
     );
 }
