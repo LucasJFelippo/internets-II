@@ -3,8 +3,12 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { Search } from "lucide-react";
 import { headerLogo } from "@/public/images";
+import { ControlType } from "@/types/global";
 
-const Header = () => {
+const Header = ({ control }: ControlType) => {
+
+    const { setActiveSection } = control;
+
     return (
         <header className="w-full bg-black h-20 flex justify-between px-12 items-center fixed z-99">
             <div className="flex gap-20">
@@ -20,21 +24,21 @@ const Header = () => {
                     </Link>
                 </div>
                 <ul className="flex items-center gap-8">
-                    <li className="flex gap-1">
-                        <Link href="/news" className="font-bold hover:text-[#1ED760] transition-colors">
-                            News
-                        </Link>
+                    <li className="flex gap-1 cursor-pointer" onClick={() => setActiveSection("news")}>
+                        {/* <Link href="/news" className="font-bold hover:text-[#1ED760] transition-colors"> */}
+                        <span>News</span>
+                        {/* </Link> */}
                         <ChevronDown />
                     </li>
-                    <li className="flex gap-1">
-                        <a href="https://www.spotify.com/br/about-us/press/" className="font-bold" target="_blank" rel="noopener noreferrer">Company</a>
+                    <li className="flex gap-1 cursor-pointer" onClick={() => setActiveSection("company")}>
+                        <span>Company</span>
                         <ChevronDown />
                     </li>
                 </ul>
             </div>
             <div className="flex items-end border-b-2 border-solid w-122 pb-2">
-                <input type="text" id="search" placeholder="Search..." className="w-full outline-0 text-2xl font-bold placeholder:text-white" />
-                <Search />
+                    <input type="text" id="search" placeholder="Search..." className="w-full outline-0 text-2xl font-bold placeholder:text-white"  />
+                    <Search />
             </div>
 
             {/* <button id="theme-toggle" className="theme-toggle-button">Mudar Tema</button>     */}
