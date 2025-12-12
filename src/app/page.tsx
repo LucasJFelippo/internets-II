@@ -1,19 +1,19 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import News from "@/components/News";
 import Company from "@/components/Company";
+import { useGlobal } from "@/context/GlobalContext";
 import { aboutSpotify, ceoImage, lifeAtSpotify, sustainabilityReport, timeToPlayFair, spotifyLoudClear } from "@/public/images";
 
 export default function Home() {
 
-  const [activeSection, setActiveSection] = useState<"news" | "company" | null>(null);
+  const { activeSection } = useGlobal();
 
   return (
     <main className="bg-white h-full w-full">
-      <Header control={{ setActiveSection }} />
+      <Header />
       <div className="pt-20">
         {!activeSection && (
           <>
@@ -82,12 +82,12 @@ export default function Home() {
 
       {activeSection === "news" && (
         <div id="modal" className="absolute top-20 left-0 w-full h-[calc(100vh-5rem)] overflow-y-auto bg-white z-50">
-          <News control={{ setActiveSection }} />
+          <News />
         </div>
       )}
       {activeSection === "company" && (
         <div id="modal" className="absolute top-20 left-0 w-full h-[calc(100vh-5rem)] overflow-y-auto bg-white z-50">
-          <Company control={{ setActiveSection }} />
+          <Company />
         </div>
       )}
       {!activeSection && <Footer />}
