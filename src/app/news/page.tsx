@@ -1,98 +1,31 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useGlobal } from "@/context/GlobalContext";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {
-    spotifyLoudClear,
-    timeToPlayFair,
-    sustainabilityReport,
-    aboutSpotify,
-    spotlight,
-    edSheeran,
-    lifeAtSpotify
-} from "@/public/images";
-import Image from "next/image";
-import Company from "@/components/Company";
 import News from "@/components/News";
-import { useGlobal } from "@/context/GlobalContext";
-
-// --- CONFIGURAÇÃO ISR ---
-// export const revalidate = 60;
-
-// --- DADOS MOCKADOS ---
-async function getNewsData() {
-    await new Promise((resolve) => setTimeout(resolve, 100));
-
-    const images = [
-        lifeAtSpotify,
-        spotifyLoudClear,
-        timeToPlayFair,
-        sustainabilityReport,
-        aboutSpotify,
-        edSheeran
-    ];
-
-    return [
-        {
-            id: 1,
-            category: "News & Announcements",
-            title: "Celebrate Taylor Swift’s Record-Breaking Year and New Docuseries with… Exclusive Playlist Cover",
-            image: images[0],
-        },
-        {
-            id: 2,
-            category: "News & Announcements",
-            title: "Spotify and The Game Awards Debut Gaming- Inspired Spotify Singles… From Labrinth,",
-            image: images[1],
-        },
-        {
-            id: 3,
-            category: "News & Announcements",
-            title: "You’re in Control: Spotify Lets You Steer the Algorithm",
-            image: images[2],
-        },
-        {
-            id: 4,
-            category: "News & Announcements",
-            title: "Spotify Expands Music Videos in Beta to Premium Users in the US and… Canada",
-            image: images[3],
-        },
-        {
-            id: 5,
-            category: "Artists & Creators",
-            title: "Celebrating Spotify’s GLOW, RADAR, and EQUAL Artists of 2025",
-            image: images[4],
-        },
-        {
-            id: 6,
-            category: "News & Announcements",
-            title: "Surprised by Your 2025 Wrapped? Here’s a Look at How the Data Comes t… Life",
-            image: images[5],
-        },
-        {
-            id: 7,
-            category: "News & Announcements",
-            title: "How Our 2025 Wrapped Campaign Turns Your Year in Listening Into a Global… Celebration",
-            image: images[0],
-        },
-        {
-            id: 8,
-            category: "News & Announcements",
-            title: "The Year in Podcasting: From Award Shows Uncensored to the Louvr… Heist, Here’s What Shaped",
-            image: images[1],
-        },
-        {
-            id: 9,
-            category: "News & Announcements",
-            title: "Start Your Wrapped Party",
-            image: images[2],
-        }
-    ];
-}
+import Company from "@/components/Company";
+import { Item } from "@/types/global";
+import { spotlight, edSheeran, spotifyLogo } from "@/public/images";
 
 export default function NewsPage() {
-    // const news = await getNewsData();
 
     const { activeSection } = useGlobal();
+
+    const [items, setItems] = useState<Item[]>([]);
+    
+    useEffect(() => {
+        async function load() {
+            const res = await fetch("/api/news");
+            const data = await res.json();
+            // setItems(data);
+            console.log(data);
+            setItems(data);
+        }
+        load();
+    }, []);
+
 
     return (
         <main className="bg-white min-h-screen w-full font-sans">
@@ -168,31 +101,32 @@ export default function NewsPage() {
             </section>
 
             {/* GRID DE NOTÍCIAS */}
-            <section className="w-full px-[40px] py-16 flex justify-center text-black">
+            <section className="w-full px-10 py-16 flex justify-center text-black">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[34px] gap-y-[64px] max-w-[1350px]">
-                    {/* {news.map((item) => (
+                    {items.map((item) => (
                         <article
-                            key={item.id}
+                            key={item.link}
                             className="group flex flex-col w-full max-w-[427px] cursor-pointer"
                         >
                             <div className="h-[180px] w-full relative overflow-hidden mb-[12.5px]">
                                 <Image
-                                    src={item.image}
+                                    src={item?.image ?? spotifyLogo}
                                     alt={item.title}
-                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                                    fill
+                                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
                                 />
                             </div>
 
                             <div className="flex flex-col items-start">
                                 <span className="font-black text-[14px] leading-[17px] uppercase mb-[12px]">
-                                    {item.category}
+                                    {item.categories[0]}
                                 </span>
                                 <h3 className="font-medium text-[33.3px] leading-[41px] group-hover:underline decoration-2 underline-offset-4 decoration-black">
                                     {item.title}
                                 </h3>
                             </div>
                         </article>
-                    ))} */}
+                    ))}
                 </div>
             </section>
 
