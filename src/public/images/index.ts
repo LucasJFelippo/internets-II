@@ -10,6 +10,7 @@ import audiobooks from "./audiobooks.jpg";
 import wrapped2025 from "./wrapped-2025.png";
 import streamOn from "./stream-on.png";
 import edSheeran from "./edSheeran.png";
+import spotifyLogo from "./spotify-logo.jpg";
 
 // icons
 import artists from "./artists.svg";
@@ -32,5 +33,5 @@ import facebook from "./facebook.svg";
 export {
     aboutSpotify, ceoImage, headerLogo, lifeAtSpotify, spotifyLoudClear, sustainabilityReport, timeToPlayFair,
     artists, creators, advertisers, lifeAt, design, engineering, vendors, songwriters, inventors, help, spotify,
-    instagram, X, facebook, companyNews, audiobooks, wrapped2025, streamOn, edSheeran, spotlight
+    instagram, X, facebook, companyNews, audiobooks, wrapped2025, streamOn, edSheeran, spotlight, spotifyLogo
 };
