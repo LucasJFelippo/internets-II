@@ -73,7 +73,7 @@ export default function NewsPage() {
 
                 <div className="relative z-10 flex flex-row items-center gap-[100px] w-full max-w-[1200px] px-4">
                     <div className="flex flex-col items-start gap-[7px] w-[470px]">
-                        <span className="font-black text-[14px] leading-[20px] uppercase text-white tracking-wide">
+                        <span className="font-black text-[14px] leading-5 uppercase text-white tracking-wide">
                             Artists & Creators
                         </span>
                         <h3 className="font-medium text-[32.9px] leading-[42px] text-white cursor-pointer hover:underline decoration-2 underline-offset-4">
@@ -88,21 +88,17 @@ export default function NewsPage() {
                         />
                     </div>
                 </div>
-
-                <div className="absolute bottom-[8px] left-1/2 -translate-x-1/2 z-0">
-                    <Image
-                        src={spotlight}
-                        alt="Spotlight Graphic"
-                        width={541}
-                        height={18}
-                        className="w-[541px] h-[18px]"
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-0 w-full">
+                    <div
+                        className="h-[18px] bg-repeat-x bg-size-[541px_18px]"
+                        style={{ backgroundImage: `url(${spotlight.src})` }}
                     />
                 </div>
             </section>
 
             {/* GRID DE NOTÍCIAS */}
             <section className="w-full px-10 py-16 flex justify-center text-black">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[34px] gap-y-[64px] max-w-[1350px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-[34px] gap-y-16 max-w-[1350px]">
                     {items.map((item) => (
                         <article
                             key={item.link}
@@ -118,7 +114,7 @@ export default function NewsPage() {
                             </div>
 
                             <div className="flex flex-col items-start">
-                                <span className="font-black text-[14px] leading-[17px] uppercase mb-[12px]">
+                                <span className="font-black text-[14px] leading-[17px] uppercase mb-3">
                                     {item.categories[0]}
                                 </span>
                                 <h3 className="font-medium text-[33.3px] leading-[41px] group-hover:underline decoration-2 underline-offset-4 decoration-black">
