@@ -2,6 +2,8 @@
 
 Este repositório apresenta o desenvolvimento de um projeto acadêmico da disciplina Sistemas para Internet II, cujo objetivo foi recriar páginas do Spotify Newsroom e analisar diferentes abordagens de desenvolvimento frontend. O projeto envolve a implementação de páginas utilizando tecnologias web tradicionais e frameworks modernos, explorando estratégias de renderização, organização do código e boas práticas de desenvolvimento.
 
+[Acesse o projeto](https://internets-ii.vercel.app/)
+
 ## Descrição Geral do Projeto e da Migração
 
 Este projeto teve como objetivo recriar a página Company Info do Spotify Newsroom
@@ -44,3 +46,12 @@ De forma geral, a comparação evidencia que a migração para o Next.js trouxe 
 ## Breve reflexão sobre como o projeto representa uma abordagem de frontend desacoplado.
 
 O projeto adota uma abordagem de frontend desacoplado ao separar a camada de apresentação da lógica de obtenção de dados, utilizando requisições a APIs para o carregamento das informações. Essa separação torna o frontend mais flexível e independente, facilitando a manutenção, a reutilização de componentes e futuras evoluções do sistema. Além disso, o uso de diferentes estratégias de renderização reforça essa independência, mantendo o foco do frontend na exibição do conteúdo.
+
+
+## Autores
+
+- [@Beatriz-SMB](https://github.com/Beatriz-SMB)
+- [@Dandrielx](https://github.com/Dandrielx)
+- [@LucasJFelippo](https://github.com/LucasJFelippo)
+
+
