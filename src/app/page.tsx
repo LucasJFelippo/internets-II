@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,16 +6,17 @@ import News from "@/components/News";
 import Company from "@/components/Company";
 import { useGlobal } from "@/context/GlobalContext";
 import { aboutSpotify, ceoImage, lifeAtSpotify, sustainabilityReport, timeToPlayFair, spotifyLoudClear } from "@/public/images";
+import Link from "next/link";
 
 export default function Home() {
 
-  const { activeSection } = useGlobal();
+  // const { activeSection } = useGlobal();
 
   return (
     <main className="bg-white h-full w-full">
       <Header />
       <div className="pt-20">
-        {!activeSection && (
+        {/* {!activeSection && ( */}
           <>
             <section className="flex border-b-2 border-solid border-black">
               <div className="w-[66.67%] border-r-2 border-solid border-black px-20 py-10">
@@ -43,7 +44,7 @@ export default function Home() {
                 <div className="group flex flex-col items-center h-140 px-12 pt-24 relative hover:bg-[#2D46B9]">
                   <h2 className="text-black font-bold text-6xl absolute top-12.5 group-hover:text-white">Life at Spotify</h2>
                   <Image src={lifeAtSpotify} alt="Life at Spotify" className="w-full object-cover" />
-                  <button className="bg-[#1ED760] text-black px-8 py-3 mt-8 rounded-full font-bold uppercase cursor-pointer hover:bg-white hover:border">learn more</button>
+                  <Link href="/news" className="bg-[#1ED760] text-black px-8 py-3 mt-8 rounded-full font-bold uppercase cursor-pointer hover:bg-white hover:border">learn more</Link>
                 </div>
               </div>
             </section>
@@ -77,10 +78,10 @@ export default function Home() {
               </div>
             </section>
           </>
-        )}
+        {/* )} */}
       </div>
 
-      {activeSection === "news" && (
+      {/* {activeSection === "news" && (
         <div id="modal" className="absolute top-20 left-0 w-full h-[calc(100vh-5rem)] overflow-y-auto bg-white z-50">
           <News />
         </div>
@@ -90,7 +91,8 @@ export default function Home() {
           <Company />
         </div>
       )}
-      {!activeSection && <Footer />}
+      {!activeSection && <Footer />} */}
+      <Footer />
     </main>
   );
 }
