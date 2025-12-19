@@ -29,8 +29,11 @@ Página baseada em: https://newsroom.spotify.com/news/
 A página News utiliza Client Side Rendering (CSR). Nessa abordagem, a renderização inicial ocorre sem os dados completos, que são carregados posteriormente no navegador por meio de uma requisição à API interna do Next.js, realizada dentro de um useEffect. Esse modelo foi escolhido por permitir maior dinamismo no carregamento das informações, sendo mais adequado para conteúdos que podem variar com maior frequência.
 
 ## Comparação Lighthouse (antes/depois)
+<img width="561" height="132" alt="html" src="https://github.com/user-attachments/assets/cd259a04-ea43-4ab3-84a0-72ed49b04af6" />
 
 Na primeira análise do Lighthouse, realizada sobre a versão do projeto desenvolvida com HTML, CSS e JavaScript puro os resultados foram positivos em geral, com destaque para Performance e SEO. No entanto, a métrica de Best Practices apresentou uma pontuação inferior em relação às demais, indicando possíveis problemas relacionados à organização do código, uso de recursos modernos e boas práticas recomendadas pela ferramenta.
+
+<img width="565" height="125" alt="next" src="https://github.com/user-attachments/assets/ad6f135f-a083-407e-acfc-4fede795253d" />
 
 Na segunda análise, feita após a migração para Next.js foi possível observar uma melhora geral nos resultados. A pontuação de Best Practices atingiu o valor máximo, refletindo a adoção de padrões mais modernos, melhor gerenciamento de recursos e uma estrutura mais alinhada com recomendações atuais de desenvolvimento web. O SEO também apresentou melhora, beneficiado pela arquitetura do Next.js e pelo uso de renderização adequada para cada tipo de página.
 
